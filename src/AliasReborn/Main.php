@@ -1,6 +1,6 @@
 <?php
 
-namespace AliasReborn;
+namespace SimpleAlias;
 
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
@@ -20,7 +20,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 			if(is_dir($this->getDataFolder() . "alias/") == false){
 				@mkdir($this->getDataFolder() . "alias/", 0777, true);
 				}
-			$this->getLogger()->info("Version: 1.0.2 for API: 3.0.0");
+			$this->getLogger()->info("Version: 1.0.1 for API: 3.0.0");
 		}
 		
 		public function onJoin(PlayerJoinEvent $e){
@@ -36,11 +36,11 @@ use pocketmine\event\player\PlayerJoinEvent;
 					$file = explode(",\n", file_get_contents($this->getDataFolder() . "alias/" . $ip, true));
 					if(!in_array($name, $file)){
 						file_put_contents($this->getDataFolder() . "alias/" . $ip, $name . ",\n", FILE_APPEND);
-						$this->getLogger()->info("§aThis seems to be an alt\nyou should look into it if this person has been banned before or not.");
+						$this->getLogger()->info(TextFormat::GOLD . "(!)" . TextFormat::RED . "This account is a possible alt!");
 					}
 					} else {
 						file_put_contents($this->getDataFolder() . "alias/" . $ip, $name . ",\n");
-						$this->getLogger()->info("§5No records found for this person.");
+						$this->getLogger()->info(TextFormat::GOLD . "(!)" . TextFormat::RED . "No records found for this person.");
 					}
 				}
 			if(strtolower($track) === "uid"){
@@ -48,11 +48,11 @@ use pocketmine\event\player\PlayerJoinEvent;
 					$file = explode(",\n", file_get_contents($this->getDataFolder() . "alias/" . $uid, true));
 					if(!in_array($name, $file)){
 							file_put_contents($this->getDataFolder() . "alias/" . $uid, $name . ",\n", FILE_APPEND);
-						$this->getLogger()->info("§aThis seems to be an alt\nyou should look into it if this person has been banned before or not.");
+						$this->getLogger()->info(TextFormat::GOLD . "(!)" . TextFormat::RED . "This account is a possible alt!");
 					}
 					} else {
 						file_put_contents($this->getDataFolder() . "alias/" . $uid, $name . ",\n");
-						$this->getLogger()->info("§5No records found for this person.");
+						$this->getLogger()->info(TextFormat::GOLD . "(!)" . TextFormat::RED . "No records found for this person.");
 					}
 				}
 			if(strtolower($track) === "cid"){
@@ -60,11 +60,11 @@ use pocketmine\event\player\PlayerJoinEvent;
 					$file = explode(",\n", file_get_contents($this->getDataFolder() . "alias/" . $cid, true));
 					if(!in_array($name, $file)){
 							file_put_contents($this->getDataFolder() . "alias/" . $cid, $name . ",\n", FILE_APPEND);
-						$this->getLogger()->info("§aThis seems to be an alt\nyou should look into it if this person has been banned before or not.");
+						$this->getLogger()->info(TextFormat::GOLD . "(!)" . TextFormat::RED . "This account is a possible alt!");
 					}
 					} else {
 						file_put_contents($this->getDataFolder() . "alias/" . $cid, $name . ",\n");
-						$this->getLogger()->info("§5No records found for this person.");
+						$this->getLogger()->info(TextFormat::GOLD . "(!)" . TextFormat::RED . "No records found for this person.");
 					}
 				}
 			if(strtolower($track) === "xid"){
@@ -72,11 +72,11 @@ use pocketmine\event\player\PlayerJoinEvent;
 					$file = explode(",\n", file_get_contents($this->getDataFolder() . "alias/" . $xid, true));
 					if(!in_array($name, $file)){
 							file_put_contents($this->getDataFolder() . "alias/" . $xid, $name . ",\n", FILE_APPEND);
-						$this->getLogger()->info("§aThis seems to be an alt.\nyou should look into it if this person has been banned before or not.");
+						$this->getLogger()->info(TextFormat::GOLD . "(!)" . TextFormat::RED . "This account is a possible alt!");
 					}
 					} else {
 						file_put_contents($this->getDataFolder() . "alias/" . $xid, $name . ",\n");
-						$this->getLogger()->info("§5No records found for this person.");
+						$this->getLogger()->info(TextFormat::GOLD . "(!)" . TextFormat::RED . "No records found for this person.");
 					}
 				}
 		}
@@ -95,30 +95,30 @@ use pocketmine\event\player\PlayerJoinEvent;
 						if(strtolower($track) === "ip"){
 							$contents = file_get_contents($this->getDataFolder() . "alias/" . $ip, true);
 							$final_list = implode(", ", array_unique(explode(",\n", $contents)));
-							$sender->sendMessage("§aHere are the accounts this player is using on that ip: §b" $final_list);
+							$sender->sendMessage("TextFormat::GOLD . "(!)" . TextFormat::GREEN . "Current accounts found under players IP:" . TextFormat::RED . $final_list);
 							}
 						if(strtolower($track) === "uid"){
 							$contents = file_get_contents($this->getDataFolder() . "alias/" . $uid, true);
 							$final_list = implode(", ", array_unique(explode(",\n", $contents)));
-							$sender->sendMessage("§aHere are the accounts this player is using on that UID: §b" $final_list);
+							$sender->sendMessage(TextFormat::GOLD . "(!)" . TextFormat::GREEN . "Current accounts found under players UID:" . TextFormat::RED . $final_list);
 							}
 						if(strtolower($track) === "cid"){
 							$contents = file_get_contents($this->getDataFolder() . "alias/" . $cid, true);
 							$final_list = implode(", ", array_unique(explode(",\n", $contents)));
-							$sender->sendMessage("§aHere are the accounts this player is using on that CID: §b" $final_list);
+							$sender->sendMessage(TextFormat::GOLD . "(!)" . TextFormat::GREEN . "Current accounts found under players CID:" . TextFormat::RED . $final_list);
 							}
 						if(strtolower($track) === "xid"){
 							$contents = file_get_contents($this->getDataFolder() . "alias/" . $xid, true);
 							$final_list = implode(", ", array_unique(explode(",\n", $contents)));
-							$sender->sendMessage("§aHere are the accounts this player is using on that XID: §b" $final_list);
+							$sender->sendMessage(TextFormat::GOLD . "(!)" . TextFormat::GREEN . "Current accounts found under players XID:" . TextFormat::RED . $final_list);
 							}
 							return true;
 						} else {
-						$sender->sendMessage("§2Player not online or does not exist.");
+						$sender->sendMessage(TextFormat::GOLD . "(!)" . TextFormat::GRAY . "Error, it seems to be that the current player is not online!");
 						return false;
 						}
 					} else {
-					$sender->sendMessage("§dPlease use: §6/alias <player>");
+					$sender->sendMessage(TextFormat::GOLD . "(!)" . TextFormat::GRAY . "Usage: /alias <player>");
 					return false;
 					}
 				break;
