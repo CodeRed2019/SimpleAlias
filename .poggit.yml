@@ -1,0 +1,7 @@
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/CodeRed2019/SimpleAlias
+branches:
+- master
+projects:
+  SimpleAlias:
+    path: ""
+...
