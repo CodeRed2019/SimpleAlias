@@ -1,2 +1,4 @@
-# AliasReborn
-A new way to alias players on your PMMP server.
+# SimpleAlias
+A new and simple way to check a user's previous names!
+
+/alias <player>
