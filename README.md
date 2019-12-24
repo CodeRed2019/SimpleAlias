@@ -1,4 +1,13 @@
-# SimpleAlias
-A new and simple way to check a user's previous names!
+# SimpleAlias 
 
-/alias [player]
+## A new and improved way to check for a player's previous names!
+
+### Features
+Check CID, XID, UID, and IP!
+All changeable in the config!
+
+### Commands
+/alias <player_name>
+
+### Permissions
+simplealias.command
