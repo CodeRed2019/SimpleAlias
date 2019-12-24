@@ -1,18 +1,17 @@
 ---
-name: AliasReborn
-version: 1.0.2-3.0.0
-main: AliasReborn\Main
+name: SimpleAlias
+version: 1.0.1
+main: SimpleAlias\Loader
 api: 3.0.0
-author: ArceusMatt
+author: DC
 description: New & updated alias plugin.
-website: https://github.com/arceusmatt
 
 commands:
     alias:
-        description: Check usernames of a player.
-        permission: alias.cmd
+        description: Check all usernames of a certain player!
+        permission: simplealias.command
 permissions:
-  alias.cmd:
+  simplealias.command:
     default: op
-    description: "Permission for /alias."
+    description: "Perm to run the command: /alias <player>"
 ...
