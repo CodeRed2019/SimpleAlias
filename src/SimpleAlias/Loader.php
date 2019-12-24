@@ -95,7 +95,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 						if(strtolower($track) === "ip"){
 							$contents = file_get_contents($this->getDataFolder() . "alias/" . $ip, true);
 							$final_list = implode(", ", array_unique(explode(",\n", $contents)));
-							$sender->sendMessage("TextFormat::GOLD . "(!)" . TextFormat::GREEN . "Current accounts found under players IP:" . TextFormat::RED . $final_list);
+							$sender->sendMessage(TextFormat::GOLD . "(!)" . TextFormat::GREEN . "Current accounts found under players IP:" . TextFormat::RED . $final_list);
 							}
 						if(strtolower($track) === "uid"){
 							$contents = file_get_contents($this->getDataFolder() . "alias/" . $uid, true);
