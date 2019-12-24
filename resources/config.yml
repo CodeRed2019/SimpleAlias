@@ -1,5 +1,7 @@
 ---
-# select what to track.
+# choose what you want the plugin to search
+# default set to "cid"
+
 # ip = ip address/router (best)
 # uid = unique id (bad)
 # cid = client id/device id (best)
